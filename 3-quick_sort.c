@@ -27,9 +27,7 @@ void swap_items(int *array, size_t l, size_t r)
  * @array: The array containing the sub-array.
  * @low: The starting position of the sub-array.
  * @high: The ending position of the sub-array.
- * @size: The length of the array.
- *
- * Description: This function implements the quicksort algorithm with Lomuto's
+ * @size: The size of the array.
  */
 void quick_sort_range_lomuto(int *array, size_t low, size_t high, size_t size)
 {
