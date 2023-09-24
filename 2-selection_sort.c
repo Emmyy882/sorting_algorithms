@@ -1,33 +1,43 @@
 #include "sort.h"
 
 /**
- * selection_sort - a function that sorts am array of integers in ..
- * ascendinng order using the selection sort algorithm
+ * selection_sort - Sorts an array of integers in ascending order
+ *                  using the selection sort algorithm.
+ * @array: The array to sort.
+ * @size: The number of elements in the array.
  *
- * @array: the array to be sorted
- * @size: the size of the array
- * 
- * Description: sorts array in ascending order. print the array after each time of swapping two elements.
+ * Description: This function implements the selection sort algorithm
+ *              to sort an array of integers in ascending order. It
+ *              repeatedly finds the minimum element from the unsorted
+ *              portion of the array and places it at the beginning.
  */
 void selection_sort(int *array, size_t size)
 {
 	int temp;
-	size_t i;
+	size_t i, j, low_idx;
 
-	if (array == NULL || size < 2)
-		return;
-
-	for (i = 0; i < size; i++)
+	if (array != NULL)
 	{
-		if (array[i] > array[i + 1])
+		for (i = 0; i < size - 1; i++)
 		{
-			/* swaaping the elements */
-			temp = array[i];
-			array[i] = array[i + 1];
-			array[i + 1] = temp;
+			low_idx = i;
+			for (j = size - 1; j > i; j--)
+			{
+				if (array[j] < array[low_idx])
+				{
+					low_idx = j;
+				}
+			}
+			if (i != low_idx)
+			{
+				/* Swap the minimum element with the current element */
+				temp = array[i];
+				array[i] = array[low_idx];
+				array[low_idx] = temp;
 
-			/* printing the cuurent state of the array */
-			print_array(array, size);
+				/* Print the current state of the array */
+				print_array(array, size);
+			}
 		}
 	}
 }
