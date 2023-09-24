@@ -26,7 +26,7 @@ void bubble_sort(int *array, size_t size)
 				array[j] = array[j + 1];
 				array[j + 1] = temp;
 				
-				/* printing the current order of ellements of the arrray */
+				/* print the current order of ellements of the arrray */
 				print_array(array, size);
 			}
 		}
